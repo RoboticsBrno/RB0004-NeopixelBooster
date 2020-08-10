@@ -10,8 +10,9 @@ build/panel2x2: build build/panel2x2.kicad_pcb neopixelBooster.sch
 		build/panel2x2.kicad_pcb build/panel2x2
 
 build/panel2x2.kicad_pcb: neopixelBooster.kicad_pcb
-	kikit panelize grid -s 2 -g 2 2 --tabwidth 5 --tabheight 5 \
+	kikit panelize grid -s 2 -g 2 2 --tabwidth 3 --tabheight 3 \
 		--mousebites 0.6 1 0.2 --radius 1 --panelsize 70 30 --framecutV \
+		--tooling 2.5 2.5 1.152 \
 		--tolerance 20 neopixelBooster.kicad_pcb build/panel2x2.kicad_pcb
 
 clean:
