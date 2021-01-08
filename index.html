@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>RB0004 – UniversalStepdown</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="resources/normalize.css" type="text/css">
+        <link rel="stylesheet" href="resources/skeleton.css" type="text/css">
+        <link rel="stylesheet" href="resources/style.css" type="text/css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+        <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1 id="rb0004---neopixel-booster">RB0004 - Neopixel Booster</h1>
+            <p>Probably all of us makers love WS2812B - the addressable LEDs, which are often called “Neopixel” based on the brand created by <a href="https://learn.adafruit.com/adafruit-neopixel-uberguide">Adafruit</a>. They are so much fun to play with! Especially when you can buy them in strips for less than 18 USD/5 meters!</p>
+            <p>These LEDs are, however, power-hungry, and the strips are not the best design. Therefore you often struggle to power them - you need a 5V power supply with a large current rating. And these aren’t easy to get. And if you get one, the strips behave weirdly - the end of the strip has more reddish colors compared to it’s beginning.</p>
+            <p><strong>This is where RB0004 - Neopixel Booster comes in: it solves all the problems above.</strong></p>
+            <figure>
+            <img src="resources/header.jpg" alt="Header" /><figcaption>Header</figcaption>
+            </figure>
+            <p>View this project on <a href="https://cadlab.io/project/23122">CADLAB.io</a>.</p>
+            <h2 id="the-problem-in-short">The Problem In Short</h2>
+            <p>If you are interested in much in-depth explanation of the problem with some measurements, see the <a href="properties.html">page about strips properties</a>.</p>
+            <p>Each of the LEDs consumes around 60-70 mA in the full brightness (based on the temperature and batch your have). Therefore, if you have 300 LEDs in a strip, they will consume 18-21 A! That’s a lot of current. When you push current through a wire, there is a voltage drop according to <a href="https://en.wikipedia.org/wiki/Ohm%27s_law">Ohm’s law</a>. The copper wire on the strips is relatively thin and narrow. Therefore, there will be a significant voltage drop. It is quite common that you supply your strip with 5 V, but you will measure only 2.5 V at the end of the strip. That means your LEDs can’t shine the full brightness.</p>
+            <p>But why they turn red? There is a red, green, and blue LED in the chip. Each of the LED colors has a different <a href="https://en.wikipedia.org/wiki/LED_circuit">forward voltage drop</a> - the blue one has the larges one, and it is usually around 3 V. That means if the LED is supplied with less than 3V, it cannot light up the blue channel and thus, it is missing from the final color.</p>
+            <p>You could solve that by just bonding a thick wire to the back of the strip. However, a suitable wire for 21 A will be pretty thick (around 3.5 mm²). Therefore, it is better to power the whole strip with higher voltage, thus lower the current flowing in the wires and only lower the voltage locally for a few LEDs. And that’s what exactly Neopixel Booster does.</p>
+            <p>You run an extra wire around your LED strip and connect multiple Neopixel Boosters in the strip to power it by segments:</p>
+            <figure>
+            <img src="resources/wiring.jpg" alt="Wiring diagram" /><figcaption>Wiring diagram</figcaption>
+            </figure>
+            <h2 id="features">Features</h2>
+            <figure>
+            <img src="resources/modules.jpg" alt="The photo of the modules" /><figcaption>The photo of the modules</figcaption>
+            </figure>
+            <ul>
+            <li><strong>fixes the powering issue of the WS2812B LED strips on the market</strong></li>
+            <li>you can power your strips with 6-18 V
+            <ul>
+            <li>higher voltage allows you to use thinner wires</li>
+            <li>when your power your strip with higher voltage, the power supply can have a lower current rating.</li>
+            <li>you can easily use a PC power supply for powering your LEDs.</li>
+            <li>you can easily power your strip from 2-4 Li-ion cells connected in series</li>
+            </ul></li>
+            <li>requires relatively easy modification the strip, see the <a href="assembly.html">assembly guide</a></li>
+            <li>Neopixel Booster is step down module; see <a href="https://roboticsbrno.github.io/RB0004-NeopixelBooster/eval_v2/index.html">its characteristics and performance</a>.</li>
+            </ul>
+            <h2 id="i-want-one">I Want One!</h2>
+            <p><a href="https://www.tindie.com/stores/yaqwsx/?ref=offsite_badges&amp;utm_source=sellers_yaqwsx&amp;utm_medium=badges&amp;utm_campaign=badge_large"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-mediums.png" alt="I sell on Tindie!" /></a></p>
+            <h2 id="how-do-i-use-them">How Do I Use Them?</h2>
+            <p>Once you buy a kit from us, follow the <a href="assembly.html">assembly guide</a> , and within an hour, you can have your boosted strips.</p>
+            <h2 id="how-many-do-i-need-them">How Many Do I Need Them?</h2>
+            <p>We recommend not to exceed 60 LEDs per one Neopixel Booster. It is best for convenient assembly to put one Neopixel Booster for each 50 cm of the strip, but if you want to go cheap, it is OK to apply it every meter.</p>
+            <h2 id="licence">Licence</h2>
+            <p><a href="https://github.com/RoboticsBrno/RB0004-NeopixelBooster">RB0004 – NeopixexlBooster</a> by <a href="https://honzamrazek.cz">Jan Mrázek</a> and Martin Kousal is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0 <img src="https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png" alt="badge" /></a>.</p>
+        </div>
+    </body>
+
+    </html>
