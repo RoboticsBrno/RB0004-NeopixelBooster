@@ -26,7 +26,7 @@ If you are interested in much in-depth explanation of the problem with some
 measurements, see the [page about strips properties](properties.md).
 
 Each of the LEDs consumes around 60-70 mA in the full brightness (based on the
-temperature and batch your have). Therefore, if you have 300 LEDs in a strip,
+temperature and batch you have). Therefore, if you have 300 LEDs in a strip,
 they will consume 18-21 A! That's a lot of current. When you push current
 through a wire, there is a voltage drop according to [Ohm's
 law](https://en.wikipedia.org/wiki/Ohm%27s_law). The copper wire on the strips
